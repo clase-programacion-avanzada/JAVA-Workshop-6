@@ -1,0 +1,42 @@
+@startuml
+skinparam classAttributeIconSize 0
+class com.javeriana.models.Artist {
+    - id: UUID
+    - name: String
+
+    + Artist(id: UUID, name: String)
+    + Artist(name: String)
+}
+
+class com.javeriana.models.Customer {
+    - id: UUID
+    - username: String
+    - password: String
+    - name: String
+    - lastName: String
+    - age: int
+
+    + Customer(username: String, password: String, name: String, lastName: String, age: int)
+}
+
+class com.javeriana.models.playList {
+    - id: UUID
+    - name: String
+
+    + playList(name: String)
+}
+
+class com.javeriana.models.Song {
+    - id: UUID
+    - name: String
+    - genre: String
+    - durationInSeconds: int
+    - album: String
+}
+
+class Main {
+
+
+}
+
+@enduml
