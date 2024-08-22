@@ -163,7 +163,7 @@ Marque la respuesta correcta a las siguientes preguntas. Estas preguntas no afec
 ## Enunciado
 
 A continuación se presenta la documentación del proyecto de una aplicación de música. Va a encontrar una explicación detallada de las clases que deben existir en el proyecto.
-Este es el primer taller y se espera que se realice en parejas. También, este será el proyecto base para el taller 9.
+Este es el primer taller y se espera que se realice en parejas. También, este será el proyecto base para el taller 7.
 
 El primer paso es descargar o clonar el proyecto de este repositorio. Luego, abrirlo en un IDE (preferiblemente Intellij) y empezar a trabajar en él. Recuerde que debe tener instalado java 17.
 
