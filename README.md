@@ -306,6 +306,8 @@ se debe ejecutar el siguiente comando en la terminal de su IDE:
 
 Este comando compilará el proyecto y ejecutará las pruebas definidas en el proyecto.
 Si las clases están correctamente definidas, las pruebas pasarán exitosamente. En caso contrario, se mostrará un mensaje de error, indicándole qué falló.
+
+**El hecho de que las pruebas pasen no garantiza que la implementación esté correcta, solamente que cumple con la estructura solicitada.**
 ## Calificación
 
 El programa debe compilar y ejecutar sin errores. Se debe cumplir con los siguientes requerimientos:
