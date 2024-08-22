@@ -164,4 +164,18 @@ public class ClassDefinitionHelper {
                 methodData.name() + " method does not exist in " + testClass.getSimpleName() + " class.");
         }
     }
+
+    public void testToStringMethod() {
+        MethodData toStringMethod = new MethodData("toString", "String", PUBLIC_MODIFIER);
+
+        try {
+            String classDefiningToString = testClass.getMethod(toStringMethod.name()).getDeclaringClass().getName();
+            assertEquals(testClass.getName(), classDefiningToString,
+                "toString method is not being overridden in " + testClass.getSimpleName() + " class.");
+        } catch (NoSuchMethodException e) {
+            throw new AssertionError(
+                "toString method is not being overridden in " + testClass.getSimpleName() + " class.");
+        }
+        testMethodDefinition(toStringMethod);
+    }
 }

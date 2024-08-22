@@ -1,12 +1,12 @@
 package helpers;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.List;
+import org.junit.jupiter.params.provider.Arguments;
 
 public abstract class ClassDefinitionTest {
 
@@ -30,8 +30,8 @@ public abstract class ClassDefinitionTest {
     @DisplayName("Class is defined with a constructor that initializes all attributes but not receives id")
     void classHasConstructorThatInitializesAllAttributesButId() {
         try {
-            Class<?> clazz = Class.forName(getClassName());
-            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(clazz);
+            Class<?> classFromName = Class.forName(getClassName());
+            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
             definitionHelper.testConstructor(getConstructorParameterTypes());
         } catch (ClassNotFoundException e) {
             throw new AssertionError("The models package should contain a class named " + getClassName());
@@ -43,8 +43,8 @@ public abstract class ClassDefinitionTest {
     @DisplayName("Class is defined with correct attributes")
     void classHasCorrectAttributes() {
         try {
-            Class<?> clazz = Class.forName(getClassName());
-            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(clazz);
+            Class<?> classFromName = Class.forName(getClassName());
+            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
             definitionHelper.testAttributes(getExpectedAttributes());
         } catch (ClassNotFoundException e) {
             throw new AssertionError("The models package should contain a class named " + getClassName());
@@ -56,8 +56,8 @@ public abstract class ClassDefinitionTest {
     @DisplayName("Class has getters for defined attributes")
     void classHasGettersForAllAttributes() {
         try {
-            Class<?> clazz = Class.forName(getClassName());
-            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(clazz);
+            Class<?> classFromName = Class.forName(getClassName());
+            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
             definitionHelper.testGetters(getExpectedAttributes());
         } catch (ClassNotFoundException e) {
             throw new AssertionError("The models package should contain a class named " + getClassName());
@@ -69,9 +69,22 @@ public abstract class ClassDefinitionTest {
     @DisplayName("Class has setters for defined attributes")
     void classHasSettersForAllAttributes() {
         try {
-            Class<?> clazz = Class.forName(getClassName());
-            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(clazz);
+            Class<?> classFromName = Class.forName(getClassName());
+            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
             definitionHelper.testSetters(getExpectedAttributes().subList(1, getExpectedAttributes().size()));
+        } catch (ClassNotFoundException e) {
+            throw new AssertionError("The models package should contain a class named " + getClassName());
+        }
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("Class has toString method")
+    void classHasToStringMethod() {
+        try {
+            Class<?> classFromName = Class.forName(getClassName());
+            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
+            definitionHelper.testToStringMethod();
         } catch (ClassNotFoundException e) {
             throw new AssertionError("The models package should contain a class named " + getClassName());
         }
