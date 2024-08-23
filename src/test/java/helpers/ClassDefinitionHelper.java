@@ -9,6 +9,8 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -142,8 +144,13 @@ public class ClassDefinitionHelper {
 
     public void testConstructor(Class<?>... parameterTypes) {
 
+        Supplier<List<String>> getParameterTypesSimpleNames = () -> Arrays.stream(parameterTypes)
+            .map(Class::getSimpleName)
+            .toList();
+
+
         assertTrue(hasConstructor(parameterTypes),
-            "Constructor with " + Arrays.toString(parameterTypes) + " parameters does not exist in " +
+            "Constructor with " + getParameterTypesSimpleNames.get() + " parameters does not exist in " +
                 testClass.getSimpleName() + " class.");
 
     }

@@ -3,7 +3,9 @@ package models;
 import helpers.AttributeData;
 import helpers.ClassDefinitionHelper;
 import helpers.ClassDefinitionTest;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class PlayListClassDefinitionTest extends ClassDefinitionTest {
@@ -23,6 +25,6 @@ public class PlayListClassDefinitionTest extends ClassDefinitionTest {
 
     @Override
     protected List<Class[]> getConstructorParameterTypes() {
-        return (List<Class[]>) List.of(new Class[]{String.class});
+        return new ArrayList<>(Collections.singleton(new Class[]{String.class}));
     }
 }
