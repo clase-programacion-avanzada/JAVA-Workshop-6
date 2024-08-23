@@ -25,7 +25,7 @@ public class SongClassDefinitionTest extends ClassDefinitionTest {
     }
 
     @Override
-    protected Class[] getConstructorParameterTypes() {
-        return new Class[]{String.class, String.class, int.class, String.class};
+    protected List<Class[]> getConstructorParameterTypes() {
+        return (List<Class[]>) List.of(new Class[]{String.class, String.class, int.class, String.class});
     }
 }

@@ -12,7 +12,7 @@ public abstract class ClassDefinitionTest {
 
     protected abstract String getClassName();
     protected abstract List<AttributeData> getExpectedAttributes();
-    protected abstract Class[] getConstructorParameterTypes();
+    protected abstract List<Class[]> getConstructorParameterTypes();
 
     @Test
     @Order(1)
@@ -27,12 +27,16 @@ public abstract class ClassDefinitionTest {
 
     @Test
     @Order(2)
-    @DisplayName("Class is defined with a constructor that initializes all attributes but not receives id")
+    @DisplayName("Class is defined with defined constructors")
     void classHasConstructorThatInitializesAllAttributesButId() {
         try {
             Class<?> classFromName = Class.forName(getClassName());
             ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
-            definitionHelper.testConstructor(getConstructorParameterTypes());
+            List<Class[]> constructorParameterTypes = getConstructorParameterTypes();
+            constructorParameterTypes.forEach(parameters -> {
+                definitionHelper.testConstructor(parameters);
+            });
+
         } catch (ClassNotFoundException e) {
             throw new AssertionError("The models package should contain a class named " + getClassName());
         }

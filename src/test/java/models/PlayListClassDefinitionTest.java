@@ -22,7 +22,7 @@ public class PlayListClassDefinitionTest extends ClassDefinitionTest {
     }
 
     @Override
-    protected Class[] getConstructorParameterTypes() {
-        return new Class[]{String.class};
+    protected List<Class[]> getConstructorParameterTypes() {
+        return (List<Class[]>) List.of(new Class[]{String.class});
     }
 }

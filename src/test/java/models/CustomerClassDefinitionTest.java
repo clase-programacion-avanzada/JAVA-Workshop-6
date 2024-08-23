@@ -26,7 +26,7 @@ public class CustomerClassDefinitionTest extends ClassDefinitionTest {
     }
 
     @Override
-    protected Class[] getConstructorParameterTypes() {
-        return new Class[]{String.class, String.class, String.class, String.class, int.class};
+    protected List<Class[]> getConstructorParameterTypes() {
+        return (List<Class[]>) List.of(new Class[]{String.class, String.class, String.class, String.class, int.class});
     }
 }

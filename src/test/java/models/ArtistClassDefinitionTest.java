@@ -5,6 +5,7 @@ import helpers.ClassDefinitionHelper;
 import helpers.ClassDefinitionTest;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class ArtistClassDefinitionTest extends ClassDefinitionTest {
 
@@ -22,7 +23,9 @@ public class ArtistClassDefinitionTest extends ClassDefinitionTest {
     }
 
     @Override
-    protected Class[] getConstructorParameterTypes() {
-        return new Class[]{String.class};
+    protected List<Class[]> getConstructorParameterTypes() {
+        return List.of(
+            new Class[]{String.class},
+            new Class[]{UUID.class, String.class});
     }
 }
