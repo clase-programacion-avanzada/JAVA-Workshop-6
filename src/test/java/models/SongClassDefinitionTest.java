@@ -12,7 +12,7 @@ public class SongClassDefinitionTest extends ClassDefinitionTest {
 
     @Override
     protected String getClassName() {
-        return "com.javeriana.models.Song";
+        return "com.javeriana.model.Song";
     }
 
     @Override

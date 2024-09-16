@@ -11,7 +11,7 @@ public class ArtistClassDefinitionTest extends ClassDefinitionTest {
 
     @Override
     protected String getClassName() {
-        return "com.javeriana.models.Artist";
+        return "com.javeriana.model.Artist";
     }
 
     @Override

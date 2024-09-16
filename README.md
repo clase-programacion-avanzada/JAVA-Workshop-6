@@ -171,9 +171,9 @@ Una vez que haya abierto el proyecto, se crearán las clases necesarias para tra
 
 ### Paquetes
 
-#### Paquete Models
+#### Paquete model
 
-El paquete `Models` contiene las clases que representan las entidades principales de la aplicación de música.
+El paquete `model` contiene las clases que representan las entidades principales de la aplicación de música.
 Una entidad, en el contexto de la programación y el desarrollo de software, se refiere a un objeto o concepto que es identificable.
 En términos simples, una entidad es una instancia única de un objeto.
 En este programa, las entidades son: Artist, Customer, PlayList y Song.
@@ -232,13 +232,13 @@ La clase `Customer` tendrá dos constructores, de momento se implementará solo 
 
 [Volver al índice](#indice)
 
-#### Clase PlayList
+#### Clase Playlist
 
-La clase `PlayList` representa una lista de reproducción en una aplicación de música.
+La clase `Playlist` representa una lista de reproducción en una aplicación de música.
 
 ###### Atributos
 
-La clase `PlayList` tiene dos atributos:
+La clase `Playlist` tiene dos atributos:
 
 1. `id`: Este atributo es una instancia de la clase `UUID`. Se utiliza para identificar de manera única cada instancia de `PlayList`.
 
@@ -246,9 +246,9 @@ La clase `PlayList` tiene dos atributos:
 
 ###### Constructores
 
-La clase `PlayList` tiene dos constructores, de momento se implementará solo uno de ellos:
+La clase `Playlist` tiene dos constructores, de momento se implementará solo uno de ellos:
 
-1. `public PlayList(String name)`: Este constructor crea un objeto `PlayList` con el `name` proporcionado. El `id` se genera automáticamente.
+1. `public Playlist(String name)`: Este constructor crea un objeto `PlayList` con el `name` proporcionado. El `id` se genera automáticamente.
 
 
 [Volver al índice](#indice)
@@ -288,7 +288,7 @@ El método `main` debe realizar las siguientes acciones:
 
 1. Crear un objeto de la clase `Artist` con el nombre que el cliente le indique.
 2. Crear un objeto de la clase `Customer` con los datos que el cliente le indique.
-3. Crear un objeto de la clase `PlayList` con el nombre que el cliente le indique.
+3. Crear un objeto de la clase `Playlist` con el nombre que el cliente le indique.
 4. Crear un objeto de la clase `Song` con los datos que el cliente le indique.
 
 En todos los casos, los datos que el cliente le indique deben ser ingresados por consola con excepción del `id` que se generará automáticamente.
@@ -324,7 +324,7 @@ El programa debe compilar y ejecutar sin errores. Se debe cumplir con los siguie
 
 **Este taller es la base de su proyecto. Los posteriores talleres no se calificarán hasta que se haya completado este.
 Si todo está correcto, sumará 0.5 a su proyecto final.
-Este taller debe ser entregado durante la semana 10**
+Este taller debe ser entregado durante la semana 9**
 
 ## ¿Qué sigue?
 

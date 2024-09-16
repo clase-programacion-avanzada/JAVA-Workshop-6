@@ -1,6 +1,6 @@
 @startuml
 skinparam classAttributeIconSize 0
-class com.javeriana.models.Artist {
+class com.javeriana.model.Artist {
     - id: UUID
     - name: String
 
@@ -8,7 +8,7 @@ class com.javeriana.models.Artist {
     + Artist(name: String)
 }
 
-class com.javeriana.models.Customer {
+class com.javeriana.model.Customer {
     - id: UUID
     - username: String
     - password: String
@@ -19,19 +19,22 @@ class com.javeriana.models.Customer {
     + Customer(username: String, password: String, name: String, lastName: String, age: int)
 }
 
-class com.javeriana.models.playList {
+class com.javeriana.model.playList {
     - id: UUID
     - name: String
 
     + playList(name: String)
+
 }
 
-class com.javeriana.models.Song {
+class com.javeriana.model.Song {
     - id: UUID
     - name: String
     - genre: String
     - durationInSeconds: int
     - album: String
+
+    + Song(name: String, genre: String, durationInSeconds: int, album: String)
 }
 
 class Main {

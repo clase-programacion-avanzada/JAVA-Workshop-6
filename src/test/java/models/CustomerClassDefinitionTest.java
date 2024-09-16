@@ -12,7 +12,7 @@ public class CustomerClassDefinitionTest extends ClassDefinitionTest {
 
     @Override
     protected String getClassName() {
-        return "com.javeriana.models.Customer";
+        return "com.javeriana.model.Customer";
     }
 
     @Override

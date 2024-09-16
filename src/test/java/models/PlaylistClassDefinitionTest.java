@@ -8,11 +8,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class PlayListClassDefinitionTest extends ClassDefinitionTest {
+public class PlaylistClassDefinitionTest extends ClassDefinitionTest {
 
     @Override
     protected String getClassName() {
-        return "com.javeriana.models.PlayList";
+        return "com.javeriana.model.Playlist";
     }
 
     @Override
