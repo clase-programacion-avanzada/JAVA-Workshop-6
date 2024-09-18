@@ -19,7 +19,7 @@ class com.javeriana.model.Customer {
     + Customer(username: String, password: String, name: String, lastName: String, age: int)
 }
 
-class com.javeriana.model.playList {
+class com.javeriana.model.Playlist {
     - id: UUID
     - name: String
 
