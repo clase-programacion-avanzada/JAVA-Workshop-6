@@ -18,6 +18,10 @@ public class Main {
 
         //You should create a menu to ask the user what he wants to do
 
+
+
+        //At the end, you should close the scanner
+        scanner.close();
     }
   
 }
