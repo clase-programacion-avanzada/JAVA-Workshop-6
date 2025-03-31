@@ -29,13 +29,13 @@ public class CustomerClassDefinitionTest extends ClassDefinitionTest {
 
     @Override
     protected List<Class[]> getConstructorParameterTypes() {
-        Class[] parametersConstructor1 = new Class[]{String.class, String.class, String.class, String.class, String.class, int.class};
+        Class[] parametersConstructor1 = new Class[]{String.class, String.class, String.class, String.class, int.class};
         return new ArrayList<>(Collections.singleton(parametersConstructor1));
     }
 
     @Override
     protected List<Object[]> getConstructorArguments() {
-        Object[] constructor1 = new Object[]{"username", "password", "name", "lastName", "email", 25};
+        Object[] constructor1 = new Object[]{"username", "password", "name", "lastName", 25};
         return new ArrayList<>(Collections.singleton(constructor1));
     }
 
