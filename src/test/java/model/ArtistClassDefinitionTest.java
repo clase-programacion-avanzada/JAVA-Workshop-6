@@ -1,8 +1,8 @@
-package models;
+package model;
 
-import helpers.AttributeData;
-import helpers.ClassDefinitionHelper;
-import helpers.ClassDefinitionTest;
+import helper.AttributeData;
+import helper.ClassDefinitionHelper;
+import helper.ClassDefinitionTest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -27,5 +27,13 @@ public class ArtistClassDefinitionTest extends ClassDefinitionTest {
         return List.of(
             new Class[]{String.class},
             new Class[]{UUID.class, String.class});
+    }
+
+    @Override
+    protected List<Object[]> getConstructorArguments() {
+        return List.of(
+            new Object[] {"Artist Name"},
+            new Object[] {UUID.randomUUID(), "Artist Name"}
+        );
     }
 }

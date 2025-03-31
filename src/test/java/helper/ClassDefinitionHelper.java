@@ -1,15 +1,16 @@
-package helpers;
+package helper;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
+import java.util.UUID;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -172,7 +173,7 @@ public class ClassDefinitionHelper {
         }
     }
 
-    public void testToStringMethod() {
+    public void testToStringMethodExists() {
         MethodData toStringMethod = new MethodData("toString", "String", PUBLIC_MODIFIER);
 
         try {
@@ -184,5 +185,36 @@ public class ClassDefinitionHelper {
                 "toString method is not being overridden in " + testClass.getSimpleName() + " class.");
         }
         testMethodDefinition(toStringMethod);
+    }
+
+    public void testToStringMethodHasAppropriateFormat(Class[] constructorParams,
+                                                       Object[] constructorArguments,
+                                                       String regex) {
+
+        MethodData toStringMethod = new MethodData("toString", "String", PUBLIC_MODIFIER);
+
+        try {
+            String toStringResult = testClass.getMethod(toStringMethod.name())
+                .invoke(testClass.getConstructor(constructorParams).newInstance(constructorArguments))
+                .toString();
+
+            assertTrue(toStringResult.matches(regex),
+                "toString method in " + testClass.getSimpleName() + " class does not match the expected format."
+                    + " Expected format: " + regex + ". Actual result: " + toStringResult);
+        } catch (InvocationTargetException e) {
+            throw new AssertionError(
+                "toString method in " + testClass.getSimpleName() + " class threw an exception.");
+        } catch (IllegalAccessException e) {
+            throw new AssertionError(
+                "toString method in " + testClass.getSimpleName() + " class is not accessible.");
+        } catch (NoSuchMethodException e) {
+            throw new AssertionError(
+                "toString method in " + testClass.getSimpleName() + " class does not exist.");
+        } catch (InstantiationException e) {
+            throw new AssertionError(
+                "toString method in " + testClass.getSimpleName() + " class could not be instantiated.");
+        }
+
+
     }
 }

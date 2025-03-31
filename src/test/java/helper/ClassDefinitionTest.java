@@ -1,18 +1,16 @@
-package helpers;
+package helper;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.Arguments;
 
 public abstract class ClassDefinitionTest {
 
     protected abstract String getClassName();
     protected abstract List<AttributeData> getExpectedAttributes();
     protected abstract List<Class[]> getConstructorParameterTypes();
+    protected abstract List<Object[]> getConstructorArguments();
 
     @Test
     @Order(1)
@@ -88,7 +86,36 @@ public abstract class ClassDefinitionTest {
         try {
             Class<?> classFromName = Class.forName(getClassName());
             ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
-            definitionHelper.testToStringMethod();
+            definitionHelper.testToStringMethodExists();
+        } catch (ClassNotFoundException e) {
+            throw new AssertionError("The models package should contain a class named " + getClassName());
+        }
+    }
+
+    @Test
+    @Order(7)
+    @DisplayName("Class toString has appropriate format")
+    void classHasToStringMethodFormat() {
+        try {
+            Class<?> classFromName = Class.forName(getClassName());
+            ClassDefinitionHelper definitionHelper = new ClassDefinitionHelper(classFromName);
+
+            Class[] constructorParameterTypes = getConstructorParameterTypes().get(0);
+            Object[] constructorArguments = getConstructorArguments().get(0);
+            // Regex that matches the format of the toString method
+            // <Atributo1>: <Valor1> - <Atributo2>: <Valor2> ... <AtributoN>: <ValorN>
+            String regex = getExpectedAttributes().stream()
+                .map(attribute ->
+                {   String attributeNameWithFirstLetterUpperCase =
+                        attribute.name().substring(0, 1).toUpperCase() + attribute.name().substring(1);
+                    return attributeNameWithFirstLetterUpperCase + ": .*";})
+                .reduce((a, b) -> a + " - " + b)
+                .orElse("");
+
+            definitionHelper.testToStringMethodHasAppropriateFormat(
+                constructorParameterTypes,
+                constructorArguments,
+                regex);
         } catch (ClassNotFoundException e) {
             throw new AssertionError("The models package should contain a class named " + getClassName());
         }

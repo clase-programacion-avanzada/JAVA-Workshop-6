@@ -1,4 +1,4 @@
-package helpers;
+package helper;
 
 public record MethodData(
     String name,

@@ -1,8 +1,8 @@
-package models;
+package model;
 
-import helpers.AttributeData;
-import helpers.ClassDefinitionHelper;
-import helpers.ClassDefinitionTest;
+import helper.AttributeData;
+import helper.ClassDefinitionHelper;
+import helper.ClassDefinitionTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,5 +29,10 @@ public class SongClassDefinitionTest extends ClassDefinitionTest {
     @Override
     protected List<Class[]> getConstructorParameterTypes() {
         return new ArrayList<>(Collections.singleton(new Class[]{String.class, String.class, int.class, String.class}));
+    }
+
+    @Override
+    protected List<Object[]> getConstructorArguments() {
+        return new ArrayList<>(Collections.singleton(new Object[]{"Song Name", "Rock", 180, "Album Name"}));
     }
 }

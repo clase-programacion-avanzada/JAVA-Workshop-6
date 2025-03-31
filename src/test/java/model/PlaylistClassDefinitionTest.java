@@ -1,8 +1,8 @@
-package models;
+package model;
 
-import helpers.AttributeData;
-import helpers.ClassDefinitionHelper;
-import helpers.ClassDefinitionTest;
+import helper.AttributeData;
+import helper.ClassDefinitionHelper;
+import helper.ClassDefinitionTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,5 +26,10 @@ public class PlaylistClassDefinitionTest extends ClassDefinitionTest {
     @Override
     protected List<Class[]> getConstructorParameterTypes() {
         return new ArrayList<>(Collections.singleton(new Class[]{String.class}));
+    }
+
+    @Override
+    protected List<Object[]> getConstructorArguments() {
+        return new ArrayList<>(Collections.singleton(new Object[]{"Playlist Name"}));
     }
 }

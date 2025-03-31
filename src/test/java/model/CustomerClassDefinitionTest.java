@@ -1,8 +1,8 @@
-package models;
+package model;
 
-import helpers.AttributeData;
-import helpers.ClassDefinitionHelper;
-import helpers.ClassDefinitionTest;
+import helper.AttributeData;
+import helper.ClassDefinitionHelper;
+import helper.ClassDefinitionTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,4 +32,12 @@ public class CustomerClassDefinitionTest extends ClassDefinitionTest {
         Class[] parametersConstructor1 = new Class[]{String.class, String.class, String.class, String.class, String.class, int.class};
         return new ArrayList<>(Collections.singleton(parametersConstructor1));
     }
+
+    @Override
+    protected List<Object[]> getConstructorArguments() {
+        Object[] constructor1 = new Object[]{"username", "password", "name", "lastName", "email", 25};
+        return new ArrayList<>(Collections.singleton(constructor1));
+    }
+
+
 }
